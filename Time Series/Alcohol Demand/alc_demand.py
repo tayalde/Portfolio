@@ -1,4 +1,4 @@
-from numpy import exp
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import adfuller
@@ -15,8 +15,8 @@ df = pd.read_csv(filepath, header=0, names=['Month', 'log(Consumption)'],
                  error_bad_lines=False, date_parser=dateparse)
 
 log_ts = df['log(Consumption)']
-ts = exp(log_ts)
-
+ts = np.exp(log_ts)
+np.argmax(ts)
 
 def test_stationarity(ts):
     rolmean = ts.rolling(window=3, center=False).mean()
