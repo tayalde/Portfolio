@@ -7,13 +7,14 @@ from matplotlib.colors import ListedColormap
 
 iris = datasets.load_iris()
 
+fp = "E:\Python Workspace\Data Science Projects\Classification\Iris\data\working\iris_data.txt"
+
 n_neighbors = 2
 h = 0.02
 
 sns.set(style="darkgrid")
 
-data = pd.read_csv('E:\Python Workspace\Data Science Projects' +
-                   '\Iris Classification\data\working\iris_data.txt',
+data = pd.read_csv(fp,
                    names=["sepal_l", "sepal_w", "petal_l", "petal_w", "class"])
 
 setosa = data.loc[data['class'] == 'Iris-setosa']
