@@ -17,7 +17,7 @@ def draw_stage(players, deck):
 	while i < 2:
 		for player in players:
 			player.hand.draw(deck)
-			print(player.hand)
+		print(i)
 		i += 1
 	bet_stage(players, deck)
 
@@ -26,7 +26,6 @@ def flop_stage(players, deck):
 	deck.burn_card()
 	for i in range(3):
 		flop.draw(deck)
-	print(flop)
 	bet_stage(players, deck)
 	return flop
 
@@ -34,7 +33,6 @@ def turn_stage(players, deck):
 	turn = Hand(maxlen=1)
 	deck.burn_card()
 	turn.draw(deck)
-	print(turn)
 	bet_stage(players, deck)
 	return turn
 
@@ -42,7 +40,6 @@ def river_stage(players, deck):
 	river = Hand(maxlen=1)
 	deck.burn_card()
 	river.draw(deck)
-	print(river)
 	bet_stage(players, deck)
 	return river
 
@@ -51,7 +48,7 @@ def reveal_stage(players, deck, flop, turn, river):
 	# give pot to winner
 	for player in players:
 		player.hand.empty(deck)
-		if player.money == 0:
+		if player.money <= 0:
 			players.remove(player)
 	flop.empty(deck)
 	turn.empty(deck)
@@ -69,4 +66,8 @@ def main():
 	reveal_stage(players, deck, flop, turn, river)
 
 if __name__ == '__main__':
-	main()
+	while len(players) > 1:
+		print(players)
+		for player in players:
+			print(player.money)
+		main()
