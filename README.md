@@ -22,9 +22,11 @@ Small projects to test basic python understanding.
 Classification problems and tutorial learnings.
 
 1. Iris
+
 Classic learning tutorial for KNN classification using sklearn.
 
 2. Titanic 
+
 Another classic learner for sklearn, but this case uses Decision Trees.
 
 ### TODO
@@ -64,8 +66,9 @@ Project Euler practice for solving logic problems.
 Time series analysis practice using python.
 
 1. Alcohol Demand
+
 Took random data set off data.gov to run time series forecasting.
 
 ### TODO
 
--commenting
+- commenting
