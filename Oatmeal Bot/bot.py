@@ -14,10 +14,21 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    
+    """
+    Event handler for incoming message based commands.
+
+    Defines number of commands to wait for before responding according each
+    condition.
+
+    Parameters
+    ----------
+    message: string
+        Message sent in discord chat, to be recieved by bot.
+    """
     # Test messages/connection
     if message.content.startswith('!test'):
         counter = 0
+
         tmp = await client.send_message(message.channel,
                                         'Calculating messages...')
         async for log in client.logs_from(message.channel, limit=100):
@@ -40,8 +51,8 @@ async def on_message(message):
 
     # Info/help message for bot
     elif message.content.startswith('!info') or message.content.startswith('!help'):
-        info = discord.Embed(title='T H I C C',
-                             description='T H I C C E S T bot there is...')
+        info = discord.Embed(title='Hello!',
+                             description='Best bot there is...')
         info.set_image(url='http://i0.kym-cdn.com/photos/images/original/001/232/046/190.gif')
         info.add_field(name='!hello',
                        value='Says hello',
